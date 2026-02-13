@@ -24,7 +24,7 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final ValueNotifier<int> counter = ValueNotifier(1);
+  final ValueNotifier<int> counter = ValueNotifier(0);
 
   @override
   void initState() {
@@ -37,60 +37,54 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(   
       body: Column(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 50,
-                  left: 20,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius : BorderRadius.circular(10)
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius : BorderRadius.circular(10)
+              ),
+              child: ValueListenableBuilder<int>(
+                valueListenable: counter,
+                builder: (context, score, child) {
+                  return Text(
+                    'Score: $score',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold
                     ),
-                    child: ValueListenableBuilder<int>(
-                      valueListenable: counter,
-                      builder: (context, score, child) {
-                        return Text(
-                          'Score: $score',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold
-                          ),
-                        );
-                      },
-                    )
-                  ),
+                  );
+                },
+              )
+            ),
+          ),
+          Positioned(
+            top: 50,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.music_note),
+                  onPressed: () {}, 
                 ),
-                Positioned(
-                  top: 50,
-                  right: 20,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.music_note),
-                        onPressed: () {}, 
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.volume_up),
-                        onPressed: () {}, 
-                      ),
-                    ],
-                  )
+                IconButton(
+                  icon: Icon(Icons.volume_up),
+                  onPressed: () {}, 
                 ),
-                Padding(
-                  padding: EdgeInsets.all(16),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      counter.value++;
-                      print(counter.value);
-                    }, 
-                    child: Text("Tambah Score"),
-                  ),
-                )
               ],
+            )
+          ),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: ElevatedButton(
+              onPressed: () {
+                counter.value++;
+              }, 
+              child: Text("Tambah Score"),
             ),
           ),
         ],
