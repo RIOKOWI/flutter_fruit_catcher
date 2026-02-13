@@ -40,7 +40,11 @@ class _GameScreenState extends State<GameScreen> {
                 IconButton(
                   icon: Icon(Icons.music_note),
                   onPressed: () {}, 
-                )
+                ),
+                IconButton(
+                  icon: Icon(Icons.volume_up),
+                  onPressed: () {}, 
+                ),
               ],
             )
           )
