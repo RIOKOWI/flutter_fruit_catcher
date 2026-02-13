@@ -13,7 +13,25 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(    
       body: Stack(
         children: [
-          Pos
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius : BorderRadius.circular(10)
+              ),
+              child: Text(
+                'Score 1',
+                style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold    
+                            ),
+              )
+            ),
+          )
         ],
       )
     );
