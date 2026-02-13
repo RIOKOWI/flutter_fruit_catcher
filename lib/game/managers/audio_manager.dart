@@ -8,5 +8,8 @@ class AudioManager {
   double _musicVolume = 0.7;
   double _sfxVolume = 1.0;
 
-
+  bool get isMusicEnabled => _isMusicEnabled;
+  bool get isSfxEnabled => _isSfxEnabled;
+  double get musicVolume => _musicVolume;
+  double get sfxVolume => _sfxVolume;
 }
