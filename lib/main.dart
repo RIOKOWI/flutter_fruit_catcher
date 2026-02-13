@@ -26,7 +26,7 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  final ValueNotifier<int> counter = ValueNotifier(0);
+  // final ValueNotifier<int> counter = ValueNotifier(0);
   late FruitCatcherGame game;
 
   @override
@@ -52,7 +52,7 @@ class _GameScreenState extends State<GameScreen> {
                 borderRadius : BorderRadius.circular(10)
               ),
               child: ValueListenableBuilder<int>(
-                valueListenable: counter,
+                valueListenable: game.scoreNotifier,
                 builder: (context, score, child) {
                   return Text(
                     'Score: $score',
@@ -82,15 +82,6 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ],
             )
-          ),
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: ElevatedButton(
-              onPressed: () {
-                counter.value++;
-              }, 
-              child: Text("Tambah Score"),
-            ),
           ),
         ],
       ),
