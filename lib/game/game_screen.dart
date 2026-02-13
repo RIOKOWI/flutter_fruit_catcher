@@ -31,6 +31,18 @@ class _GameScreenState extends State<GameScreen> {
                             ),
               )
             ),
+          ),
+          Positioned(
+            top: 50,
+            right: 20,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: Icon(Icons.music_note),
+                  onPressed: () {}, 
+                )
+              ],
+            )
           )
         ],
       )
