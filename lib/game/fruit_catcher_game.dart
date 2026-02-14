@@ -56,4 +56,15 @@ class FruitCatcherGame extends FlameGame with PanDetector, HasCollisionDetection
     final fruit = Fruit(position: Vector2(x, -50));
     add(fruit);
   }
+
+  @override
+  void onPanUpdate(DragUpdateInfo info){
+    basket.position.x += info.delta.global.x;
+    basket.position.x = basket.position.x.clamp(basket.size.x / 2, basket.size.y / 2);
+  }
+
+  void incrementScore() {
+    score++;
+    AudioManager().playSfx('sfx/teliling.mp3');
+  }
 }
