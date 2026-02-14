@@ -34,4 +34,38 @@ class Fruit extends PositionComponent with HasGameRef<FruitCatcherGame>, Collisi
     }
   }
 
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+
+    if(other is Basket){
+      gameRef.incrementScore();
+      removeFromParent();
+    }
+  }
+
+  @override
+  void render(Canvas canvas){
+    super.render(canvas);
+
+    final paint = Paint()..style = PaintingStyle.fill;
+
+    switch (type) {
+      case FruiType.apple:
+      paint.color = Colors.red;
+      break;
+      case FruiType.banana:
+      paint.color = Colors.yellow;
+      break;
+      case FruiType.orange:
+      paint.color = Colors.orange;
+      break;
+      case FruiType.strawberry:
+      paint.color = Colors.pink;
+      break;
+    }
+
+    canvas.drawCircle(Offset(size.x / 2, size.y / 2), size.x / 2, paint);
+  }
+
 }
