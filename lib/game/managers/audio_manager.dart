@@ -110,4 +110,10 @@ class AudioManager {
       pauseBackgroundMusic();
     }
   }
+
+  void enableSfx(){
+    if (_isSfxEnabled) {
+      _isSfxEnabled = true;
+    }
+  }
 }
