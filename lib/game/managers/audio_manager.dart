@@ -55,5 +55,14 @@ class AudioManager {
     }
   }
 
+  void playSfx(String fileName){
+    if (_isSfxEnabled) {
+      try {
+        FlameAudio.play('sfx/$fileName', volume: _sfxVolume);
+      } catch (e) {
+        print('error playing sfx: $e');
+      }
+    }
+  }
 
 }
