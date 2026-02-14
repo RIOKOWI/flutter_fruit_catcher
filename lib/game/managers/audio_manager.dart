@@ -29,7 +29,7 @@ class AudioManager {
       }
   }
 
-  void PlayBackgroundMUsic() {
+  void playBackgroundMUsic() {
     if (_isMusicEnabled) {
       try {
         FlameAudio.bgm.play('music/backsound.mp3', volume: _musicVolume);
@@ -39,11 +39,19 @@ class AudioManager {
     }
   }
 
-  void StopBackgroundMusic() {
+  void stopBackgroundMusic() {
     try {
       FlameAudio.bgm.pause();
     } catch (e) {
       print('Error when paused backsound: $e');
+    }
+  }
+
+  void resumeBackgroundMusic() {
+    try {
+      FlameAudio.bgm.resume();
+    } catch (e) {
+      print('error resuming backsound: $e');
     }
   }
 
