@@ -39,6 +39,12 @@ class _GameScreenState extends State<GameScreen> {
     game = FruitCatcherGame();
   }
 
+  @override
+  void dispose(){
+    game.onRemove();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
