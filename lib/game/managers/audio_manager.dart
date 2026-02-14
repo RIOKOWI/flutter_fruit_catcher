@@ -39,5 +39,13 @@ class AudioManager {
     }
   }
 
+  void StopBackgroundMusic() {
+    try {
+      FlameAudio.bgm.pause();
+    } catch (e) {
+      print('Error when paused backsound: $e');
+    }
+  }
+
 
 }
