@@ -1,9 +1,14 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:game/game/fruit_catcher_game.dart';
+import 'package:game/game/managers/audio_manager.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await AudioManager().initialize();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
