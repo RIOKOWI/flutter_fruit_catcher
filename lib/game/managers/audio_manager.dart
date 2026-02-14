@@ -116,4 +116,10 @@ class AudioManager {
       _isSfxEnabled = true;
     }
   }
+
+  void disableSfx() {
+    if (_isSfxEnabled) {
+      _isSfxEnabled = false;
+    }
+  }
 }
