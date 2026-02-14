@@ -97,7 +97,10 @@ class AudioManager {
     _isSfxEnabled = !_isSfxEnabled;
   }
 
-
+  void enableMusic(){
+    _isMusicEnabled = true;
+    resumeBackgroundMusic();
+  }
 
 
 }
