@@ -39,7 +39,7 @@ class AudioManager {
     }
   }
 
-  void stopBackgroundMusic() {
+  void pauseBackgroundMusic() {
     try {
       FlameAudio.bgm.pause();
     } catch (e) {
@@ -84,4 +84,12 @@ class AudioManager {
     }
   }
 
+  void toggleMUsic(){
+    _isMusicEnabled = !_isMusicEnabled;
+    if (_isMusicEnabled) {
+      resumeBackgroundMusic();
+    } else {
+      pauseBackgroundMusic();
+    }
+  }
 }
