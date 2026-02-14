@@ -18,9 +18,9 @@ class AudioManager {
   Future<void> initialize() async {
     try {
       await FlameAudio.audioCache.loadAll([
-        'music/backsound.mp3',
-        'sfx/jeder.mp3',
-        'sfx/teliling.mp3',
+        'music/instrumental.mp3',
+        'sfx/explode.mp3',
+        'sfx/collect.mp3',
         'sfx/toet_kowek.mp3',
       ]);
       print('Audio Initialize Successfully');
@@ -29,10 +29,10 @@ class AudioManager {
       }
   }
 
-  void playBackgroundMUsic() {
+  void playBackgroundMusic() {
     if (_isMusicEnabled) {
       try {
-        FlameAudio.bgm.play('music/backsound.mp3', volume: _musicVolume);
+        FlameAudio.bgm.play('music/instrumental.mp3', volume: _musicVolume);
       } catch (e) {
         print('Error playing backsound: $e');
       }
@@ -98,10 +98,8 @@ class AudioManager {
   }
 
   void enableMusic(){
-    if (_isMusicEnabled) {
-      _isMusicEnabled = true;
-      resumeBackgroundMusic();
-    }
+    _isMusicEnabled = true;
+    resumeBackgroundMusic(); 
   }
 
   void disableMusic(){
@@ -112,9 +110,7 @@ class AudioManager {
   }
 
   void enableSfx(){
-    if (_isSfxEnabled) {
       _isSfxEnabled = true;
-    }
   }
 
   void disableSfx() {
