@@ -92,4 +92,12 @@ class AudioManager {
       pauseBackgroundMusic();
     }
   }
+
+  void toggleSfx(){
+    _isSfxEnabled = !_isSfxEnabled;
+  }
+
+
+
+
 }
